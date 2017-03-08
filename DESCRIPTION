@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: person("Siyuan", "Yao", email = "siyuan.yao@gmail.com", role = c("aut", "cre"))
 Description: This package helps you to bin continuous variable in an easy way.
 URL: https://github.com/siyuany/autobin
-Depends: R (>= 3.3), woe
+Depends: R (>= 3.0), woe
 Imports: magrittr
 License: GPL-3
 Encoding: UTF-8
