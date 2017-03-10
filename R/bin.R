@@ -32,8 +32,8 @@ function(target, predictor, nbin = 5, unit = 1,
     # percentage test
     pct.test <- function(disc.pred) {
         count <- tapply(disc.pred, disc.pred, length)
-        count <- count[!grepl('^=', names(count))]
-        min(count / sum(count)) >= min.node.pct
+        count <- count[!grepl('^=', names(count)) & names(count) != 'Missing']
+        min(count / sum(count, na.rm = TRUE), na.rm = TRUE) >= min.node.pct
     }
 
     # fisher's test
