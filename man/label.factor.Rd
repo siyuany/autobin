@@ -7,7 +7,7 @@
 \usage{
 label.factor(x, levels = NULL)
 
-label.numeric(x, cuts, na.level = NULL)
+label.numeric(x, cuts, single.values = NULL, na.level = NULL)
 }
 \arguments{
 \item{x}{a numeric or a vector which can be coerced to be a factor}
@@ -15,6 +15,8 @@ label.numeric(x, cuts, na.level = NULL)
 \item{levels}{designated levels in the result factor}
 
 \item{cuts}{cut points to segment a numeric, using a right-close interval}
+
+\item{single.values}{For numeric vectors, some of the values should be as separate levels.}
 
 \item{na.level}{should NA be an independent level? NULL for default behavior which inducts}
 }

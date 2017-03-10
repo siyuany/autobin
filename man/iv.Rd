@@ -7,27 +7,16 @@
 iv(target, groups)
 }
 \arguments{
-\item{target}{the objective variable which should be binary.}
-
-\item{groups}{the predictive (categorical) variable}
-
 \item{target}{the objective variable, which should be binary, i.e., have only two values.}
 
 \item{groups}{the discrete predictor.}
 }
 \value{
-information value
-
 \code{iv} a non-negative numeric.
 }
 \description{
 This function calculates the information value of a discrete predictor on an
 objective variable.
-}
-\details{
-Information Value
-
-Calculate the information value of a variable.
 }
 \examples{
 library(ISLR)

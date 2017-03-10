@@ -8,7 +8,9 @@
 #' @param levels designated levels in the result factor
 #' @param cuts cut points to segment a numeric, using a right-close interval
 #' @param na.level should NA be an independent level? NULL for default behavior which inducts
+#' @param single.values For numeric vectors, some of the values should be as separate levels.
 #'
+#' @import magrittr
 #' @export
 label.factor <- function(x, levels = NULL) {
     if (is.null(levels)) {
@@ -24,7 +26,9 @@ label.factor <- function(x, levels = NULL) {
 #' @describeIn label.factor
 #'
 #' @export
-label.numeric <- function(x, cuts, na.level = NULL) {
+label.numeric <- function(x, cuts,
+                          single.values = NULL,
+                          na.level = NULL) {
     cuts <- sort(cuts)
     n_cut <- length(cuts)
     level.names <- paste0('<= ', cuts) %>% c(paste0('> ', cuts[n_cut]))
@@ -49,6 +53,11 @@ label.numeric <- function(x, cuts, na.level = NULL) {
         y[is.na(x)] <- 'Missing'
     } else {
         y <- level.names[y]
+    }
+
+    if (single.values %>% is.null %>% not) {
+        y[x %in% single.values] <- paste0('= ', x[x %in% single.values])
+        level.names <- c(level.names, paste0('= ', single.values))
     }
 
     factor(y, level.names)
