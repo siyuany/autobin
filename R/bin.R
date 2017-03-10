@@ -15,6 +15,8 @@
 #' \code{IV} the information value
 #' \code{ivtable} an iv-table given by \code{\link[woe]{woe}}
 #'
+#' @import magrittr
+#' @import woe
 #' @export
 bin <-
 function(target, predictor, nbin = 5, unit = 1,
@@ -29,8 +31,9 @@ function(target, predictor, nbin = 5, unit = 1,
     # .NotYetUsed(p, error = FALSE)
     # percentage test
     pct.test <- function(disc.pred) {
-        tapply(disc.pred, disc.pred, length) %>% min(na.rm = TRUE) >=
-            length(disc.pred) * min.node.pct
+        count <- tapply(disc.pred, disc.pred, length)
+        count <- count[!grepl('^=', names(count))]
+        min(count / sum(count)) >= min.node.pct
     }
 
     # fisher's test

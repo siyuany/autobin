@@ -1,13 +1,5 @@
 #' Information Value
 #'
-#' Calculate the information value of a variable.
-#'
-#' @param target the objective variable which should be binary.
-#' @param groups the predictive (categorical) variable
-#'
-#' @return information value
-#'
-#' @title Information Value
 #' @description
 #' This function calculates the information value of a discrete predictor on an
 #' objective variable.
@@ -20,6 +12,7 @@
 #' data(Default)
 #' with(Default, iv(default, student))
 #'
+#' @import magrittr
 #' @export
 
 iv <-
