@@ -16,6 +16,7 @@
 #' \code{IV} the information value
 #' \code{WOE} the weight of evidence tagble
 #'
+#' @import stats
 #' @import magrittr
 #' @import woe
 #' @export
@@ -54,7 +55,7 @@ function(target, predictor, nbin = 5, unit = 1,
     # Single values
     if (!is.null(single.values)) {
         for (val in single.values) {
-            levels[predictor == val] <- -1
+            level[predictor == val] <- -1
             iv <- c(iv, iv.level(target[predictor == val]))
             names(iv) <- c(names(iv)[-length(iv)], paste0('= ', val))
         }
