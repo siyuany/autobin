@@ -144,5 +144,5 @@ function(target, predictor, nbin = 5, unit = 1,
     dat <- data.frame(y = target, x = x)
     res <- woe(dat, 'x', FALSE, 'y', 10, good, bad)
 
-    list(cuts = cuts, IV = sum(iv), WOE = res %>% data.frame)
+    list(cuts = cuts, IV = sum(iv[!is.infinite(iv)]), WOE = res %>% data.frame)
 }
