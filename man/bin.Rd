@@ -5,7 +5,7 @@
 \title{Binning Continous Varaibles Based on Information value}
 \usage{
 bin(target, predictor, nbin = 5, unit = 1, min.node.pct = 0.05,
-  p = 0.05)
+  p = 0.05, single.values = NULL)
 }
 \arguments{
 \item{target}{the response variable}
@@ -18,14 +18,16 @@ bin(target, predictor, nbin = 5, unit = 1, min.node.pct = 0.05,
 
 \item{min.node.pct}{the smallest sample proportion of the bins}
 
-\item{p}{not used yet}
+\item{p}{p value used for fisher test rejection}
+
+\item{single.values}{some values will be split as a level}
 }
 \value{
 a \code{bin} object
 
 \code{cuts} the cut points
 \code{IV} the information value
-\code{ivtable} an iv-table given by \code{\link[woe]{woe}}
+\code{WOE} the weight of evidence tagble
 }
 \description{
 \code{bin} bins a continous variable by maximizing the infomation value.
