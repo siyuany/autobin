@@ -1,12 +1,12 @@
 Package: autobin
 Type: Package
 Title: Variables Binning for Scorecards Development
-Version: 0.2.1
+Version: 0.3.0
 Authors@R: person("Siyuan", "Yao", email = "siyuan.yao@gmail.com", role = c("aut", "cre"))
 Description: This package helps you to bin continuous variable in an easy way.
 URL: https://github.com/siyuany/autobin
 Depends: R (>= 3.0)
-Imports: magrittr, woe
+Imports: magrittr
 License: GPL-3
 Encoding: UTF-8
 LazyData: false
